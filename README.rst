@@ -3,6 +3,8 @@ Subtitlematcher
 
 Matching videos and subtitles file names
 
+Useful when you have a TV series folder with, like, 50 episodes. You don't want to waste your time renaming each subtitle with its corresponding episode one-by-one.
+
 Installation
 ============
 ::
