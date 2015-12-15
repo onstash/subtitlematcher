@@ -1,24 +1,29 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import os, sys
+import os
+import sys
 
 VIDEO_FORMAT    = ('avi', 'flv', 'mkv', 'm4p', 'm4v', 'mp4', 'mpeg', 'mpg', 'webm', 'wmv')
 SUBTITLE_FORMAT = ('ass', 'srt', 'ssa' ,'sub')
 
-os.chdir(str(sys.argv[1]) if len(sys.argv) > 1 else os.getcwd())
+def get_files(_format, files):
+    return sorted(filter(lambda f: f.split('.')[-1] in _format, files))
 
-files_in_movie_dir = os.listdir(os.getcwd())
+def match_name(movies, subtitles):
+    for i in range(0, len(movies)):
+        new_name = '.'.join(movies[i].split('.')[:-1])+'.'+subtitles[i].split('.')[-1] 
+        try:
+            os.rename(subtitles[i], new_name)
+            print "[%d] Success!!!" % (i+1)
+        except OSError:
+            print "[%d] Oops! Somehow I cannot match the subtitle for you. Sorry man..."% (i+1)
+            pass
 
-videos    = sorted(filter(lambda f: f.split('.')[-1] in VIDEO_FORMAT, files_in_movie_dir))
-subtitles = sorted(filter(lambda f: f.split('.')[-1] in SUBTITLE_FORMAT, files_in_movie_dir))
-
-for i in range(0, len(videos)):
-    target = '.'.join(videos[i].split('.')[:-1])+'.'+subtitles[i].split('.')[-1] 
-    try:
-        os.rename(subtitles[i], target)
-        print "[%d] Success!!!" % (i+1)
-    except OSError:
-        print "[%d] Oops! Somehow I cannot match the subtitle for you. Sorry man..."% (i+1)
-        pass
-print ">>> Done!!! <<<"
-
+if __name__ == '__main__':
+    os.chdir(str(sys.argv[1]) if len(sys.argv) > 1 else os.getcwd())
+    files_in_movie_dir = os.listdir(os.getcwd())
+    movies    = get_files(VIDEO_FORMAT, files_in_movie_dir)
+    subtitles = get_files(SUBTITLE_FORMAT, files_in_movie_dir)
+    match_name(movies, subtitles)
+    print ">>> Done!!! <<<"
+    
