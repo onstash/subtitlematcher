@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="subtitlematcher",
-    version="0.0.1",
+    version="0.0.2",
     description="Matching videos and subtitles file names",
     long_description=open('README.rst', 'r').read(),
     url="http://github.com/itsjef/subtitlematcher.git",
