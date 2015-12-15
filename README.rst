@@ -27,6 +27,11 @@ or
 
     $ subtitlematcher /path/to/directory
 
+Changelog
+=========
+
+    - ***0.0.2***: Fixed a bug happens when there are less subtitle files than videos
+
 The MIT License
 ===============
 
