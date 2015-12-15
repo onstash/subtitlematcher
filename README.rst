@@ -1,34 +1,29 @@
 Subtitlematcher
 ===============
 
-Matching videos and subtitles names
+Matching videos and subtitles file names
 
 Installation
 ============
+::
 
-``
-$ sudo pip install subtitlematcher
-``
+    $ sudo pip install subtitlematcher
 
 Usage
 =====
 
 -  Go to your directory, where you have your movies and subtitles
    waiting
--  Run the following command in your terminal:
+-  Run the following command in your terminal:::
 
-``
-$ subtitlematcher
-``
+    $ subtitlematcher
 
 or
 
 -  Open your terminal
--  Run the command and specify the path to your desired directory
+-  Run the command and specify the path to your desired directory::
 
-``
-$ subtitlematcher /path/to/directory
-``
+    $ subtitlematcher /path/to/directory
 
 The MIT License
 ===============
