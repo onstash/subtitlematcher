@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import os, sys
-
 from util.util import *
 
 VIDEO_FORMAT = ('avi', 'flv', 'mkv', 'm4p', 'm4v', 'mp4', 'mpeg', 'mpg', 'webm', 'wmv')
@@ -11,6 +10,11 @@ files_in_movie_dir = os.listdir(str(sys.argv[1]) if len(sys.argv) > 1 else os.ge
 
 videos    = sorted(get_files(VIDEO_FORMAT, files_in_movie_dir))
 subtitles = sorted(get_files(SUBTITLE_FORMAT, files_in_movie_dir))
+# print videos
+# print subtitles
 
-print videos
-print subtitles
+for i in range(0, len(videos)):
+    target = videos[i].split('.')[0] + subtitles[i].split('.')[-1] 
+    print target
+    # os.rename(subtitles[i], target)
+
