@@ -6,6 +6,8 @@ Matching video and subtitle file name
 
 `$ pip install subtitlematcher`
 
+(you may need `sudo`)
+
 # Usage
 
 * Go to your directory, where you have your movies and subtitles waiting
