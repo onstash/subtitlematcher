@@ -2,13 +2,12 @@
 # -*- coding: UTF-8 -*-
 import os, sys
 
-sys.path.append('../util')
-from util import *
+from util.util import *
 
 VIDEO_FORMAT = ('avi', 'flv', 'mkv', 'm4p', 'm4v', 'mp4', 'mpeg', 'mpg', 'webm', 'wmv')
 SUBTITLE_FORMAT = ('ass', 'srt', 'ssa' ,'sub')
 
-files_in_movie_dir = os.listdir(sys.argv[1] if len(sys.argv) > 1 else os.getcwd())
+files_in_movie_dir = os.listdir(str(sys.argv[1]) if len(sys.argv) > 1 else os.getcwd())
 
 videos    = sorted(get_files(VIDEO_FORMAT, files_in_movie_dir))
 subtitles = sorted(get_files(SUBTITLE_FORMAT, files_in_movie_dir))
