@@ -14,7 +14,7 @@ subtitles = sorted(get_files(SUBTITLE_FORMAT, files_in_movie_dir))
 # print subtitles
 
 for i in range(0, len(videos)):
-    target = videos[i].split('.')[0] + subtitles[i].split('.')[-1] 
+    target = '.'.join(videos[i].split('.')[:-1] + subtitles[i].split('.')[-1])
     print target
     # os.rename(subtitles[i], target)
 
