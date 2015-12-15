@@ -1,1 +1,7 @@
-This program auto rename the subtile's file name to match the movie's file name
+# Subtilematcher
+
+Matching video and subtitle file name
+
+# Installation
+
+# Usage
