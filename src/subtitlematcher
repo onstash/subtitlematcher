@@ -23,11 +23,12 @@ def match_name(movies, subtitles):
 if __name__ == '__main__':
     chdir(str(sys.argv[1]) if len(sys.argv) > 1 else getcwd())
     files_in_movie_dir = listdir(getcwd())
-    if len(files_in_movie_dir) == 0:
-        print "There's nothing here. I'm leaving..."
-    else:
+    if files_in_movie_dir:
         movies    = get_files(VIDEO_FORMAT, files_in_movie_dir)
         subtitles = get_files(SUBTITLE_FORMAT, files_in_movie_dir)
         match_name(movies, subtitles)
         print ">>> Done!!! <<<"
+    else:
+        print "There's nothing here. I'm leaving..."
+        
     
