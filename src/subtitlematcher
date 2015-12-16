@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 import os
 import sys
+from itertools import izip
 
 VIDEO_FORMAT    = ('avi', 'flv', 'mkv', 'm4p', 'm4v', 'mp4', 'mpeg', 'mpg', 'webm', 'wmv')
 SUBTITLE_FORMAT = ('ass', 'srt', 'ssa' ,'sub')
@@ -10,7 +11,7 @@ def get_files(_format, files):
     return sorted(filter(lambda f: f.split('.')[-1] in _format, files))
 
 def match_name(movies, subtitles):
-    for (movie, subtitle) in zip(movies, subtitles):
+    for (movie, subtitle) in izip(movies, subtitles):
         new_name = '.'.join(movie.split('.')[:-1])+'.'+subtitle.split('.')[-1] 
         try:
             os.rename(subtitle, new_name)
