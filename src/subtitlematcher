@@ -17,7 +17,7 @@ def match_name(movies, subtitles):
         try:
             rename(subtitle, new_name)
             print "Success!!!"
-        except:
+        except OSError:
             print "Oops! Somehow I cannot match the subtitle for you. Sorry man..."
             pass
 
