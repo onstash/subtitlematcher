@@ -12,7 +12,8 @@ def get_files(_format, files):
 
 def match_name(movies, subtitles):
     for (movie, subtitle) in izip(movies, subtitles):
-        new_name = '.'.join(movie.split('.')[:-1])+'.'+subtitle.split('.')[-1] 
+        new_name = "%s.%s" % ('.'.join(movie.split('.')[:-1]),
+                              subtitle.split('.')[-1])
         try:
             rename(subtitle, new_name)
             print "Success!!!"
